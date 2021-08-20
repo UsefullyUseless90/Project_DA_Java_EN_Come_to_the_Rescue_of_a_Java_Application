@@ -11,8 +11,7 @@ public class HemebiotechApp {
 
 		List<String> mySymptomsList;
 		Map<String, Long> symptomsCalculated;
-		ISymptomReader reader = new ReadSymptomDataFromFile(
-				"C:\\Users\\antco\\Desktop\\JAVA\\workspace\\root\\HemebiotechAnalytics\\Projet_java2--master\\Project02Eclipse\\src\\com\\hemebiotech\\analytics\\symptoms.txt");
+		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		AnalyticsCounter ac = new AnalyticsCounter(reader);
 		FileCreater fc = new FileCreater() {
 		};
