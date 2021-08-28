@@ -8,13 +8,13 @@ import java.util.Map;
 public class FileCreaterImpl implements FileCreater {
 
 	private String writer;
+	private Map<String, Long> symptomsMapSorted;
 
 	public FileCreaterImpl(String string) {
 		this.writer = string;
 	}
 
-	@Override
-	public Map<String, Long> writeSymptoms(Map<String, Long> symptomsMapSorted) throws IOException {
+	public void writeSymptoms(Map<String, Long> symptomsMapSorted) throws IOException {
 
 		FileWriter fstream = new FileWriter(this.writer);
 		BufferedWriter out = new BufferedWriter(fstream);
@@ -32,6 +32,7 @@ public class FileCreaterImpl implements FileCreater {
 			out.flush();
 		}
 		out.close();
-		return symptomsMapSorted;
+
 	}
+
 }

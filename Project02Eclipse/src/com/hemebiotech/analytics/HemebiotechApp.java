@@ -11,13 +11,16 @@ public class HemebiotechApp {
 
 		List<String> mySymptomsList;
 		Map<String, Long> symptomsCalculated;
+
 		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-		AnalyticsCounter ac = new AnalyticsCounter(reader);
-		FileCreater writer = new FileCreaterImpl("resultOut.txt");
+		FileCreater writer = new FileCreaterImpl("Project02Eclipse/resultOut.txt");
+		AnalyticsCounter ac = new AnalyticsCounter(reader, writer);
+
 		mySymptomsList = ac.readSymptoms();
 		symptomsCalculated = ac.addingSymptoms(mySymptomsList);
 		symptomsCalculated = ac.sortingSymptoms(symptomsCalculated);
-		symptomsCalculated = writer.writeSymptoms(symptomsCalculated);
+		ac.writeSymptoms(symptomsCalculated);
+
 	}
 }
 

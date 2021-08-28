@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -9,9 +10,16 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	private ISymptomReader isr;
+	private FileCreater fsr;
 
-	public AnalyticsCounter(ISymptomReader a) {
+	public AnalyticsCounter(ISymptomReader a, FileCreater f) {
 		this.isr = a;
+		this.fsr = f;
+	}
+
+	public void writeSymptoms(Map<String, Long> symptomsMapSorted) throws IOException {
+
+		this.fsr.writeSymptoms(symptomsMapSorted);
 	}
 
 	public List<String> readSymptoms() {
